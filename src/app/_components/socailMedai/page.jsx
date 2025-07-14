@@ -31,7 +31,7 @@ export default function SocailMedail() {
         {social.map((item, index) => (
           <li
             key={index}
-            className="flex justify-between items-center rounded-md bg-[#9ec8b920] text-[#DBD3D3] opacity-85 cursor-pointer hover:opacity-100"
+            className="flex justify-between items-center rounded-md dark:bg-[var(--box-bg-dark)] bg-[var(--box-bg)] dark:text-[var(--header-color-dark)] text-[var(--secoundry-color)] opacity-85 cursor-pointer hover:opacity-100"
           >
             <a className="py-2 px-5 " href={item.link} target="_blank">
               <i className={`${item.icon} text-[20px]`}></i>

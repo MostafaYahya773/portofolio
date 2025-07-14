@@ -30,13 +30,13 @@ export default function PageInfo() {
             <Link
               onClick={() => setIsOpenManu(false)}
               href={page.link}
-              className="flex flex-col justify-between gap-3 bg-[#9ec8b920] opacity-85 p-4 rounded-md hover:opacity-100"
+              className="flex flex-col justify-between gap-3 dark:bg-[var(--box-bg-dark)] bg-[var(--box-bg)] opacity-85 p-4 rounded-md hover:opacity-100"
               key={index}
             >
-              <h1 className="text-[18px] md:text-[20px] font-bold text-[#FF9D23]">
+              <h1 className="text-[18px] md:text-[20px] font-bold dark:text-[var(--secoundry-color-dark)] text-[var(--secoundry-color)]">
                 {page.name}
               </h1>
-              <p className="text-white text-[15px] md:text-[18px]">
+              <p className="dark:text-[var(--white-color)] text-[var(--primary-color)] text-[15px] md:text-[18px]">
                 {page.includes}
               </p>
             </Link>

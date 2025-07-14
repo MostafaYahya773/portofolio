@@ -2,7 +2,7 @@
 import Image from 'next/image';
 import React, { useState } from 'react';
 import CountUp from 'react-countup';
-import Animation from '../animation/page';
+
 import SocailMedail from '../socailMedai/page';
 export default function Hero() {
   // Animated Counter
@@ -14,18 +14,22 @@ export default function Hero() {
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-5 my-10 md:my-16 overflow-hidden">
-      <div className="order-2 md:order-1" delay={0} x={-100} duration={0.5}>
-        <div className="info text-white text-[30px] md:text-[36px] flex flex-col gap-0  ">
+      <div className="order-2 md:order-1">
+        <div className="info dark:text-white text-[var(--primary-color)] text-[30px] md:text-[36px] flex flex-col gap-0  ">
           <h1>
-            Mostafa <span className=" text-[#FF9D23]">Yahya</span>,
+            Mostafa{' '}
+            <span className="dark:text-[var(--secoundry-color-dark)] text-[var(--secoundry-color)]">
+              Yahya
+            </span>
+            ,
           </h1>
           <h2>FrontEnd Developer</h2>
           <div className="text-[20px] flex flex-col gap-3">
-            <p className="text-[#DBD3D3]  font-light">
+            <p className="dark:text-[var(--header-color-dark)] text-[var(--header-color)]   font-light">
               Turning ideas into interactive, responsive, and user-friendly web
               experiences using
             </p>
-            <div className="text-[20px] flex gap-1 text-[#FF9D23]">
+            <div className="text-[20px] flex gap-1 dark:text-[var(--secoundry-color-dark)] text-[var(--secoundry-color)]">
               <a href="https://react.dev/" target="_blank">
                 React.js,
               </a>
@@ -37,17 +41,18 @@ export default function Hero() {
               </a>
             </div>
           </div>
-          <div className="counter mt-5 backdrop-blur-md bg-white/5 rounded-xl w-full md:w-3/4 lg:w-1/2 py-2">
-            <div className="projects grid grid-cols-3   text-[20px] ">
+          <div className="counter mt-5 backdrop-blur-md dark:bg-[var(--box-bg-dark)] bg-[var(--box-bg)] rounded-xl w-full md:w-3/4 lg:w-1/2 py-2">
+            <div className="projects grid grid-cols-3 text-[20px] ">
               {animated.map((item, index) => (
                 <div className="flex gap-3 flex-col items-center " key={index}>
                   <p className="font-light ">{item.type}</p>
                   <div className="flex items-center">
                     <CountUp
-                      className="text-[#FF9D23]"
+                      className="text-[var(--secoundry-color)] dark:text-[var(--secoundry-color-dark)]"
                       start={0}
                       end={item.count}
-                      duration={3}
+                      duration={4}
+                      delay={0.2}
                     />
                     +
                   </div>
@@ -57,13 +62,8 @@ export default function Hero() {
           </div>
         </div>
       </div>
-      <div
-        delay={0}
-        className="order-1 md:order-2 flex flex-col justify-between z-0  gap-5"
-        x={100}
-        duration={0.5}
-      >
-        <div className="image bg-[#DBD3D3]  relative overflow-hidden me-auto  md:mx-auto  w-[200px] h-[200px] rounded-full ">
+      <div className="order-1 md:order-2 flex flex-col justify-between z-0  gap-5">
+        <div className="image dark:bg-[var(--white-color)] bg-[var(--box-bg)]  relative overflow-hidden me-auto  md:mx-auto  w-[200px] h-[200px] rounded-full ">
           <Image
             className="scale-[210%] absolute top-5"
             src="/personal-img.png"

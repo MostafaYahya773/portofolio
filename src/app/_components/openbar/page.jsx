@@ -10,7 +10,7 @@ export default function OpenBar() {
   const { setIsOpenManu } = useContext(contextManu);
   return (
     <div className="flex z-[1000] justify-center items-center backdrop-blur-lg  w-full h-full fixed top-0 right-0 left-0 bottom-0">
-      <div className="w-[90%] md:w-[70%] bg-[#092635] rounded-2xl shadow h-fit  p-4 flex flex-col gap-2">
+      <div className="w-[90%] md:w-[70%] dark:bg-[var(--box-primary)] bg-[var(--secoundry-color)] rounded-2xl shadow h-fit  p-4 flex flex-col gap-2">
         <button
           onClick={() => setIsOpenManu(false)}
           className="text-white py-2 text-end cursor-pointer"

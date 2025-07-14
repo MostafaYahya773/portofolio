@@ -9,12 +9,16 @@ export default function Portfolio() {
   return (
     <div className="flex flex-col gap-3 py-5 md:py-16">
       <div className="title">
-        <div className="order-2 md:order-1 " delay={0} x={-100} duration={0.5}>
-          <div className="info text-white text-[30px] md:text-[36px] flex flex-col gap-0  ">
+        <div className="order-2 md:order-1 ">
+          <div className="info dark:text-[var(--white-color)] text-[var(--primary-color)] text-[30px] md:text-[36px] flex flex-col gap-0  ">
             <h1>
-              Mostafa's <span className=" text-[#FF9D23]">Portfolio</span>,
+              Mostafa's{' '}
+              <span className=" dark:text-[var(--secoundry-color-dark)] text-[var(--secoundry-color)]">
+                Portfolio
+              </span>
+              ,
             </h1>
-            <p className="text-[#DBD3D3] font-light text-[16px] sm:text-[18px] md:text-[20px]">
+            <p className="dark:text-[var(--header-color-dark)] text-[var(--header-color)] font-light text-[16px] sm:text-[18px] md:text-[20px]">
               Turning ideas into interactive, responsive, and user-friendly web
               experiences
             </p>

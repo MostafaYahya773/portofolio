@@ -11,13 +11,15 @@ export default function Nav() {
 
   return (
     <div className="flex items-center justify-between py-2  ">
-      <Link href="/" className="bg-white px-2 rounded-md hover:-rotate-6">
-        <h1 className="text-3xl font-bold text-[#092635]">M</h1>
+      <Link
+        href="/"
+        className="dark:bg-white bg-[var(--secoundry-color)] px-2 rounded-md hover:-rotate-6"
+      >
+        <h1 className="text-3xl font-bold dark:text-[var(--primary-color)] text-white">
+          M
+        </h1>
       </Link>
-      <div className="icons flex *:bg-white/5 *:text-white *:w-[30px] *:h-[30px] *:cursor-pointer *:text-[15px] *:rounded-full items-center gap-2">
-        <button>
-          <i className="fa-solid fa-sun"></i>
-        </button>
+      <div className="icons flex *:dark:bg-[var(--box-bg-dark)] *:bg-[var(--secoundry-color)] *:text-white *:w-[30px] *:h-[30px] *:cursor-pointer *:text-[15px] *:rounded-full items-center gap-2">
         <button onClick={() => setIsOpenManu(!isOpenManu)}>
           <i className="fa-solid fa-bars"></i>
         </button>
