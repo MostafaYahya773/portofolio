@@ -23,6 +23,22 @@ export default function NextReact() {
       github: 'https://github.com/MostafaYahya773/AIG',
       live: 'https://aig-mostafayahyas-projects.vercel.app/',
     },
+    {
+      name: 'ecommerce website',
+      image: '/shop.png',
+      tools: [
+        'Next Js',
+        'TailwindCss',
+        'React Query',
+        'Context Api',
+        'Api',
+        'next Auth',
+      ],
+      description:
+        'E-Commerce Website , An online store where users can browse products, search and filter items, add them to the cart, and complete a secure checkout',
+      github: 'https://github.com/MostafaYahya773/e-commerce-app',
+      live: 'https://e-commerce-app-pi-seven.vercel.app/',
+    },
   ]);
   return (
     <div className="flex flex-col gap-2">
