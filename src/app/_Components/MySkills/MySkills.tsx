@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import TechnologySkills from '../TechnologySkills/TechnologySkills';
 import ToolsSkills from '../ToolsSkills/ToolsSkills';
 import PersonalSkills from '../PersonalSkills/PersonalSkills';
+import StaggerContainer from '../Animations/StaggerContainer';
 
 interface SkillTypes {
   name: string;
