@@ -31,7 +31,7 @@ export default function RootLayout({
       className={`${plusJakartaSans.variable} ${inter.variable}`}
     >
       <ThemeProvider>
-        <body className="dark:bg-dark-bg-primary bg-light-bg-primary ">
+        <body className="dark:bg-dark-bg-primary bg-light-bg-primary mt-20 md:mt-32 lg:mt-0">
           <header>
             <Navbar />
           </header>

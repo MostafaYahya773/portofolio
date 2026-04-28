@@ -5,14 +5,14 @@ import ProjectCard from '../ProjectCard/ProjectCard';
 import StaggerContainer from '../Animations/StaggerContainer';
 const Projects = ({ allProjects }: { allProjects: Project[] }) => {
   return (
-    <section className="py-16 max-w-[1300px] mx-auto px-3 flex flex-col gap-16">
+    <section className="md:py-16 py-0 max-w-[1300px] mx-auto px-3 flex flex-col gap-16">
       <div className="header grid md:grid-cols-2 gap-5 items-start">
         <div className="flex flex-col gap-2">
-          <h3 className="text-40 font-bold dark:text-white text-light-bg-cta">
+          <h3 className="text-28 md:text-35 lg:text-40 font-bold dark:text-white text-light-bg-cta">
             Recent{' '}
             <span className="darkTextStyle text-light-bg-cta">Works</span>
           </h3>
-          <p className="dark:text-dark-text-secondary text-light-text-secondary">
+          <p className="text-12 md:text-14 dark:text-dark-text-secondary text-light-text-secondary">
             A collection of featured projects where I've combined technical
             expertise with creative problem-solving to deliver impactful digital
             experiences.
