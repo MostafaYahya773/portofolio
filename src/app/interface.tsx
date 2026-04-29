@@ -16,3 +16,12 @@ export interface Project {
   Future_description: string;
   image_url: string;
 }
+
+export interface TimelineItem {
+  year: string;
+  title: string;
+  description: string;
+  side: 'left' | 'right';
+  icon: any;
+  iconColor?: string;
+}

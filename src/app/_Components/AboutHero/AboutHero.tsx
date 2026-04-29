@@ -3,7 +3,7 @@ import React from 'react';
 
 const AboutHero = () => {
   return (
-    <section className="flex flex-col md:flex-row *:md:w-1/2 gap-5 mt-24 max-w-[1300px] mx-auto items-center px-3">
+    <section className="flex flex-col md:flex-row *:md:w-1/2 gap-5 mt-24 max-w-[1300px] mx-auto items-center px-3 ">
       <div className="info flex flex-col gap-5 order-2 md:order-1">
         <h2 className="text-24 md:text-28 lg:text-40 font-bold text-light-bg-cta darkTextStyle">
           Building digital alchemy with code.
