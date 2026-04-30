@@ -11,7 +11,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
   const toolsArray = project.tools.split('-').map((tool) => tool.trim());
 
   return (
-    <div className="grid grid-rows-[300px_auto_auto_auto_auto_auto] drop-shadow-md border border-black/10 gap-7 h-full rounded-2xl bg-light-tag-bg/90 dark:bg-dark-bg-card/40 p-4">
+    <div className="grid grid-rows-[300px_auto_1fr_auto_auto_auto] drop-shadow-md border border-black/10 gap-7 h-full md:min-h-[820px] rounded-2xl bg-light-tag-bg/90 dark:bg-dark-bg-card/40 ">
       {/* الصف الأول — الصورة */}
       <div className="w-full rounded-xl overflow-hidden">
         <Image
@@ -24,7 +24,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
       </div>
 
       {/* الصف الثاني — title + date و name */}
-      <div className="flex flex-col items-start gap-1">
+      <div className="flex flex-col items-start gap-1  px-4">
         <span className="text-12 md:text-14 font-mono tracking-[2px] uppercase text-light-bg-cta dark:text-dark-teal">
           {project.title} - {project.project_date.slice(0, 4)}
         </span>
@@ -34,12 +34,12 @@ const ProjectCard = ({ project }: { project: Project }) => {
       </div>
 
       {/* الصف الثالث — الوصف */}
-      <p className="text-12 md:text-14 dark:text-dark-text-secondary text-light-text-secondary">
+      <p className="text-12 md:text-14 dark:text-dark-text-secondary text-light-text-secondary px-4">
         {project.description}
       </p>
 
       {/* الصف الرابع — Future description */}
-      <div className="text-12 md:text-14 flex flex-col gap-2 dark:text-dark-text-secondary bg-light-bg-card/50 rounded-md text-light-text-secondary dark:bg-dark-bg-primary border-l-4 p-2 dark:border-dark-teal border-light-purple pl-3">
+      <div className="text-12 md:text-14 flex flex-col gap-2 dark:text-dark-text-secondary bg-light-bg-card/50 rounded-md text-light-text-secondary dark:bg-dark-bg-primary border-l-4 p-2 dark:border-dark-teal border-light-purple pl-3 mx-4">
         <span className="text-12 md:text-14 text-light-bg-cta dark:text-dark-teal uppercase tracking-[2px]">
           Future Description
         </span>
@@ -47,7 +47,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
       </div>
 
       {/* الصف الخامس — Tools */}
-      <div className="flex flex-wrap gap-2">
+      <div className="flex flex-wrap gap-2 px-4">
         {toolsArray.map((tool, index) => (
           <span
             key={index}
@@ -59,7 +59,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
       </div>
 
       {/* الصف السادس — الزرارين */}
-      <div className="flex gap-3 *:md:w-1/2">
+      <div className="flex gap-3 *:md:w-1/2 px-4 pb-4">
         <Link
           href={project.live_url}
           target="_blank"
