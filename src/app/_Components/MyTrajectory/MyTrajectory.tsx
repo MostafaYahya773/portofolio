@@ -42,7 +42,7 @@ const items: TimelineItem[] = [
 
 const MyTrajectory = () => {
   return (
-    <div className="dark:bg-dark-bg-primary py-16 overflow-hidden relative">
+    <div className="dark:bg-dark-bg-primary  overflow-hidden relative">
       {/* Glow Background */}
       <div className="w-full h-full absolute inset-0 backdrop-blur-xl z-20 pointer-events-none">
         <span className="absolute w-[400px] h-[400px] rounded-full bg-teal-400/10 top-0 right-0 blur-3xl" />
