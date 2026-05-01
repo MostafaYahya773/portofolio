@@ -20,7 +20,7 @@ const Contact = () => {
               something <span className="darkTextStyle">amazing</span> together.
             </p>
             <Link
-              href="/contact"
+              href="/ContactUs"
               className="px-5 mt-5 text-14 md:text-16 lg:text-18 font-normal py-2 flex rounded-full font-mono bg-white text-light-bg-cta dark:bg-gradient-to-r dark:from-dark-mouve dark:to-dark-teal dark:text-dark-blue transition-colors duration-300"
             >
               Start a Conversation

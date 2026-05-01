@@ -3,6 +3,8 @@ import { Plus_Jakarta_Sans, Inter } from 'next/font/google';
 import './globals.css';
 import Navbar from './_Components/Navbar/Navbar';
 import { ThemeProvider } from './context/ThemeContext';
+import ReactQueryProvider from './_Components/ReactQueryProvider/ReactQueryProvider';
+import { Toaster } from 'react-hot-toast';
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   variable: '--font-plus-jakarta-sans',
@@ -35,7 +37,10 @@ export default function RootLayout({
           <header>
             <Navbar />
           </header>
-          <main>{children}</main>
+          <Toaster />
+          <ReactQueryProvider>
+            <main>{children}</main>
+          </ReactQueryProvider>
         </body>
       </ThemeProvider>
     </html>

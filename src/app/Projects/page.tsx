@@ -8,7 +8,7 @@ const ProjectsPage = async () => {
   const projects = await getAllProjects();
 
   return (
-    <main className="py-16 mt-10 bg-light-bg-primary dark:bg-dark-bg-primary min-h-screen">
+    <section className="py-16 mt-10 bg-light-bg-primary dark:bg-dark-bg-primary min-h-screen">
       <div className="max-w-[1300px] mx-auto px-3 flex flex-col gap-16">
         {/* Header */}
         <div className="flex flex-col gap-3 items-center text-center">
@@ -32,7 +32,7 @@ const ProjectsPage = async () => {
           ))}
         </StaggerContainer>
       </div>
-    </main>
+    </section>
   );
 };
 

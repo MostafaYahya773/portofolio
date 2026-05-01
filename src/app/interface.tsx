@@ -25,3 +25,16 @@ export interface TimelineItem {
   icon: any;
   iconColor?: string;
 }
+
+export interface Info {
+  name: string;
+  value: string;
+  icon: any;
+}
+
+export interface MessageData {
+  name: string;
+  email: string;
+  subject: string;
+  description: string;
+}
