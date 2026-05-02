@@ -14,7 +14,7 @@ const socialLinks: SocialLink[] = [
     label: 'LinkedIn',
     href: 'https://linkedin.com/in/mostafa-yahya-78a780286',
   },
-  { label: 'WhatsApp', href: 'https://wa.me/01159635438' },
+  { label: 'WhatsApp', href: 'https://wa.me/+201159635438' },
   { label: 'Gmail', href: 'mailto:mostafayahya000@gmail.com' },
   {
     label: 'Facebook',
