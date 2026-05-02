@@ -40,7 +40,7 @@ const Navbar = () => {
         {/* Right side */}
         <div className="flex items-center justify-end space-x-3">
           <Link
-            href="/resume.pdf"
+            href="https://drive.google.com/file/d/1jNUQCNf59SCvbUW4_NrixMZcIcSElhLo/view?usp=sharing"
             target="_blank"
             className="flex px-4 py-2 text-12 lg:text-14 bg-light-bg-cta text-white rounded-3xl hover:bg-light-bg-cta/90 dark:bg-gradient-to-r dark:from-dark-mouve dark:to-dark-teal dark:text-dark-blue font-bold transition-colors duration-300"
           >

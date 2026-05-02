@@ -5,6 +5,7 @@ import Navbar from './_Components/Navbar/Navbar';
 import { ThemeProvider } from './context/ThemeContext';
 import ReactQueryProvider from './_Components/ReactQueryProvider/ReactQueryProvider';
 import { Toaster } from 'react-hot-toast';
+import Footer from './_Components/Footer/Footer';
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   variable: '--font-plus-jakarta-sans',
@@ -42,6 +43,8 @@ export default function RootLayout({
             <main>{children}</main>
           </ReactQueryProvider>
         </body>
+        {/* <footer> */}
+        <Footer />
       </ThemeProvider>
     </html>
   );

@@ -8,7 +8,7 @@ const Home = async () => {
   const data = await getLastProjects();
 
   return (
-    <div className="flex flex-col gap-7 ">
+    <div className="flex flex-col gap-7 mb-10">
       <HomeHero />
       <MySkills />
       <Projects allProjects={data} />

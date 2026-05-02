@@ -8,6 +8,7 @@ import { FaLocationDot } from 'react-icons/fa6';
 import { Info, MessageData } from '../interface';
 import useSendMessage from '../hooks/useSendMessage';
 import toast from 'react-hot-toast';
+import SocialLinks from '../_Components/SocialLinks/SocialLinks';
 
 export default function ContactSection() {
   const { mutate: sendMessage } = useSendMessage();
@@ -46,7 +47,7 @@ export default function ContactSection() {
   });
 
   return (
-    <section className="mt-40 px-3">
+    <section className="md:mt-40 mt-16 px-3 mb-10">
       <div className="max-w-[1300px] mx-auto w-full grid md:grid-cols-2 gap-10 items-center">
         {/* LEFT */}
         <div className="flex flex-col gap-10">
@@ -82,6 +83,7 @@ export default function ContactSection() {
               </div>
             ))}
           </div>
+          <SocialLinks />
         </div>
 
         {/* RIGHT */}

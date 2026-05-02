@@ -4,7 +4,7 @@ import getAllProjects from '../../../lib/SSRFunctions/getAllProjects'; // غير
 import ProjectCard from '../_Components/ProjectCard/ProjectCard';
 import StaggerContainer from '../_Components/Animations/StaggerContainer';
 
-const ProjectsPage = async () => {
+const Projects = async () => {
   const projects = await getAllProjects();
 
   return (
@@ -36,4 +36,4 @@ const ProjectsPage = async () => {
   );
 };
 
-export default ProjectsPage;
+export default Projects;

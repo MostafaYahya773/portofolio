@@ -19,8 +19,8 @@ const Projects = ({ allProjects }: { allProjects: Project[] }) => {
           </p>
         </div>
         <Link
-          href="/projects"
-          className="dark:bg-dark-bg-card/40 dark:text-dark-button-text md:ms-auto bg-light-tag-bg/90 px-5 py-2 hover:scale-105 hover:transition-all hover:duration-300 font-mono rounded-full"
+          href="/Projects"
+          className="dark:bg-dark-bg-card/40 dark:text-dark-button-text w-fit md:ms-auto  bg-light-tag-bg/90 px-5 py-2 hover:md:scale-105 hover:transition-all hover:duration-300 font-mono rounded-full"
         >
           View All Works
         </Link>
