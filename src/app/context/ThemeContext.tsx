@@ -1,49 +1,42 @@
 'use client';
-
-import { createContext, useContext, useEffect, useState } from 'react';
+import { createContext, useContext, useSyncExternalStore } from 'react';
 
 type Theme = 'light' | 'dark';
+const ThemeContext = createContext<{ theme: Theme; toggleTheme: () => void } | undefined>(undefined);
+const eventName = 'portfolio-theme-change';
 
-interface ThemeContextType {
-  theme: Theme;
-  toggleTheme: () => void;
-  mounted: boolean;
+function applyPreference() {
+  let saved: string | null = null;
+  try { saved = localStorage.getItem('theme'); } catch { /* Storage can be denied. */ }
+  const dark = saved === 'dark' || (saved !== 'light' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+  document.documentElement.classList.toggle('dark', dark);
 }
-
-const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
+function subscribe(onChange: () => void) {
+  const syncPreference = () => { applyPreference(); onChange(); };
+  const media = window.matchMedia('(prefers-color-scheme: dark)');
+  syncPreference();
+  window.addEventListener('storage', syncPreference);
+  window.addEventListener(eventName, onChange);
+  media.addEventListener('change', syncPreference);
+  return () => {
+    window.removeEventListener('storage', syncPreference);
+    window.removeEventListener(eventName, onChange);
+    media.removeEventListener('change', syncPreference);
+  };
+}
+function getSnapshot(): Theme { return document.documentElement.classList.contains('dark') ? 'dark' : 'light'; }
+function getServerSnapshot(): Theme { return 'light'; }
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setTheme] = useState<Theme>('light');
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    const saved = localStorage.getItem('theme') as Theme | null;
-    const preferred =
-      window.matchMedia('(prefers-color-scheme: dark)').matches ?
-        'dark'
-      : 'light';
-    const initial = saved ?? preferred;
-    setTheme(initial);
-    document.documentElement.classList.toggle('dark', initial === 'dark');
-    setMounted(true);
-  }, []);
-
+  const theme = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
   const toggleTheme = () => {
-    setTheme((prev) => {
-      const next = prev === 'light' ? 'dark' : 'light';
-      document.documentElement.classList.toggle('dark', next === 'dark');
-      localStorage.setItem('theme', next);
-      return next;
-    });
+    const next = getSnapshot() === 'dark' ? 'light' : 'dark';
+    document.documentElement.classList.toggle('dark', next === 'dark');
+    try { localStorage.setItem('theme', next); } catch { /* Current tab still changes. */ }
+    window.dispatchEvent(new Event(eventName));
   };
-
-  return (
-    <ThemeContext.Provider value={{ theme, toggleTheme, mounted }}>
-      {children}
-    </ThemeContext.Provider>
-  );
+  return <ThemeContext.Provider value={{ theme, toggleTheme }}>{children}</ThemeContext.Provider>;
 }
-
 export function useTheme() {
   const context = useContext(ThemeContext);
   if (!context) throw new Error('useTheme must be used inside ThemeProvider');

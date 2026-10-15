@@ -2,7 +2,7 @@
 import React from 'react';
 import { Skill } from '../../interface';
 
-const SkillCard = React.memo(({ skill }: { skill: Skill }) => {
+const SkillCard = ({ skill }: { skill: Skill }) => {
   const Icon = skill.icon;
 
   return (
@@ -13,6 +13,6 @@ const SkillCard = React.memo(({ skill }: { skill: Skill }) => {
       </span>
     </div>
   );
-});
+};
 
 export default SkillCard;

@@ -3,6 +3,10 @@ import React from 'react';
 import getAllProjects from '../../../lib/SSRFunctions/getAllProjects'; // غير المسار حسب عندك
 import ProjectCard from '../_Components/ProjectCard/ProjectCard';
 import StaggerContainer from '../_Components/Animations/StaggerContainer';
+import EmptyProjects from '../_Components/Projects/EmptyProjects';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = { title: 'Projects', description: 'Explore web projects by Mostafa Yahya, with live demos, source code, and the technologies behind each build.' };
 
 const Projects = async () => {
   const projects = await getAllProjects();
@@ -26,11 +30,11 @@ const Projects = async () => {
         </div>
 
         {/* Cards Grid */}
-        <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
+        {projects.length === 0 ? <EmptyProjects /> : <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
           {projects.map((project) => (
-            <ProjectCard key={project.name} project={project} />
+            <ProjectCard key={project.id} project={project} />
           ))}
-        </StaggerContainer>
+        </StaggerContainer>}
       </div>
     </section>
   );

@@ -1,70 +1,28 @@
-'use client';
 import { HiLightningBolt } from 'react-icons/hi';
 import { BsRocket } from 'react-icons/bs';
 import { MdStar } from 'react-icons/md';
-import DiskTopTimeLine from '../DiskTopTimeLine/DiskTopTimeLine';
-import { TimelineItem } from '../../interface';
-import MobileTimeLine from '../MobileTimeLine/MobileTimeLine';
-import StaggerContainer from '../Animations/StaggerContainer';
+import type { TimelineItem } from '../../interface';
 
 const items: TimelineItem[] = [
-  {
-    year: '2022 - The Start',
-    side: 'left',
-    title: 'Self-Taught Foundations',
-    description:
-      'Dived deep into the world of web standards. Spent hundreds of hours mastering HTML, CSS, and vanilla JavaScript while building small utility apps from scratch.',
-    icon: HiLightningBolt,
-    iconColor:
-      'dark:border-dark-mouve dark:drop-shadow-[0_5px_20px_rgba(192,193,255,0.5)] dark:text-dark-mouve border-light-bg-cta text-light-bg-cta drop-shadow-[0_5px_20px_rgba(55,48,200,0.3)]',
-  },
-  {
-    year: '2024 - Now',
-    side: 'left',
-    title: 'Fullstack Exploration',
-    description:
-      'Ventured into backend territory with Next.js and Supabase. Started building complete products from database design to deployment.',
-    icon: BsRocket,
-    iconColor:
-      'dark:border-dark-teal dark:drop-shadow-[0_10px_20px_rgba(68,226,205,0.6)] dark:text-dark-teal border-light-bg-cta text-light-bg-cta drop-shadow-[0_5px_20px_rgba(55,48,200,0.3)]',
-  },
-  {
-    year: '2023 - Growing',
-    title: 'React & Modern Stack',
-    side: 'right',
-    description:
-      'internship with Route Academy focus to React ecosystem, TypeScript, and modern tooling. Built real-world projects and started contributing to open source.',
-    icon: MdStar,
-    iconColor:
-      'dark:text-[#FFB783] dark:border-[#FFB783] dark:drop-shadow-[0_10px_20px_rgba(255,183,131,0.6)] border-light-bg-cta text-light-bg-cta drop-shadow-[0_5px_20px_rgba(55,48,200,0.3)]',
-  },
+  { year: '2022 — The Start', side: 'left', title: 'Self-Taught Foundations', description: 'Started with HTML, CSS, and JavaScript, learning web fundamentals by building small projects.', icon: HiLightningBolt },
+  { year: '2023 — Growing', side: 'right', title: 'React & Modern Stack', description: 'Studied the React ecosystem, TypeScript, and modern tooling through Route Academy, then applied them in web projects.', icon: MdStar },
+  { year: '2024 — Now', side: 'left', title: 'Fullstack Exploration', description: 'Expanded into Next.js and Supabase to build complete projects, from the interface to data storage and deployment.', icon: BsRocket },
 ];
-
-const MyTrajectory = () => {
-  return (
-    <div className="dark:bg-dark-bg-primary py-16 overflow-hidden relative">
-      {/* Glow Background */}
-      <div className="w-full h-full absolute inset-0 backdrop-blur-xl z-20 pointer-events-none">
-        <span className="absolute w-[400px] h-[400px] rounded-full bg-teal-400/10 top-0 right-0 blur-3xl" />
-        <span className="absolute w-[400px] h-[400px] rounded-full bg-purple-400/10 bottom-0 left-0 blur-3xl" />
-      </div>
-
-      <StaggerContainer className="flex flex-col md:gap-40 gap-10  px-3 max-w-[1300px] mx-auto relative z-30">
-        {/* Title */}
-        <div className="flex flex-col gap-2 items-center text-center">
-          <h2 className="font-mono text-12 tracking-[2px] dark:text-dark-mouve text-light-bg-cta">
-            THE TRAJECTORY
-          </h2>
-          <h3 className="text-28 md:text-35 lg:text-40 font-bold dark:text-white text-light-bg-cta">
-            Evolution of an Engineer
-          </h3>
-        </div>
-
-        <DiskTopTimeLine items={items} />
-        <MobileTimeLine items={items} />
-      </StaggerContainer>
+export default function MyTrajectory() {
+  return <section className="py-16 px-3 max-w-[1300px] mx-auto">
+    <div className="text-center mb-12">
+      <p className="font-mono text-12 tracking-widest text-light-bg-cta dark:text-dark-teal">THE TRAJECTORY</p>
+      <h2 className="text-28 md:text-35 font-bold text-light-bg-cta dark:text-dark-button-text mt-3">My development journey</h2>
     </div>
-  );
-};
-
-export default MyTrajectory;
+    <ol className="flex flex-col gap-8">
+      {items.map(({ year, title, description, side, icon: Icon }) => <li key={year} className="grid grid-cols-[44px_1fr] md:grid-cols-[1fr_50px_1fr] gap-5 items-start">
+        <span className="col-start-1 md:col-start-2 row-start-1 flex h-11 w-11 items-center justify-center rounded-full border-2 border-light-bg-cta text-light-bg-cta dark:border-dark-teal dark:text-dark-teal"><Icon aria-hidden="true" /></span>
+        <div className={'col-start-2 row-start-1 p-5 rounded-xl bg-light-tag-bg/60 dark:bg-dark-bg-card/40 ' + (side === 'left' ? 'md:col-start-1 md:text-right' : 'md:col-start-3')}>
+          <p className="text-14 text-light-bg-cta dark:text-dark-teal">{year}</p>
+          <h3 className="text-20 font-bold text-light-text-primary dark:text-dark-button-text my-2">{title}</h3>
+          <p className="text-14 leading-relaxed text-light-text-secondary dark:text-dark-text-primary">{description}</p>
+        </div>
+      </li>)}
+    </ol>
+  </section>;
+}

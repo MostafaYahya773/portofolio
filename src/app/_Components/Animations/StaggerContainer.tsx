@@ -1,43 +1,18 @@
 'use client';
+import { motion, useReducedMotion } from 'framer-motion';
+import { Children, isValidElement } from 'react';
 
-import { motion } from 'framer-motion';
-import { Ballet } from 'next/font/google';
-import React from 'react';
-
-export default function StaggerContainer({
-  children,
-  className,
-}: {
-  children: React.ReactNode;
-  className?: string;
-}) {
-  return (
-    <motion.div
-      className={className}
-      initial="hidden"
-      whileInView="show"
-      viewport={{ once: true, amount: 0.2 }}
-      variants={{
-        hidden: {},
-        show: {
-          transition: {
-            staggerChildren: 0.2,
-          },
-        },
-      }}
-    >
-      {React.Children.map(children, (child, index) => (
-        <motion.div
-          key={index}
-          variants={{
-            hidden: { opacity: 0, y: 20 },
-            show: { opacity: 1, y: 0 },
-          }}
-          transition={{ duration: 0.6, ease: 'easeOut' }}
-        >
-          {child}
-        </motion.div>
-      ))}
-    </motion.div>
-  );
+export default function StaggerContainer({ children, className }: { children: React.ReactNode; className?: string }) {
+  const reduceMotion = useReducedMotion();
+  return <div className={className}>
+    {Children.map(children, (child, index) => <motion.div
+      key={isValidElement(child) ? child.key ?? index : index}
+      className="h-full min-w-0"
+      initial={false}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.05 }}
+      transition={{ duration: reduceMotion ? 0 : 0.4 }}
+      whileHover={reduceMotion ? undefined : { y: -2 }}
+    >{child}</motion.div>)}
+  </div>;
 }

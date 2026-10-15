@@ -4,17 +4,17 @@ export interface Skill {
   icon: IconType;
 }
 export interface Project {
-  id?: string;
+  id: string;
   name: string;
   title: string;
-  description: string;
-  tools: string;
-  live_url: string;
-  github_url: string;
-  project_date: string;
-  Future: string;
-  Future_description: string;
-  image_url: string;
+  description: string | null;
+  tools: string | null;
+  live_url: string | null;
+  github_url: string | null;
+  project_date: string | null;
+  Future: string | null;
+  Future_description: string | null;
+  image_url: string | null;
 }
 
 export interface TimelineItem {
@@ -22,14 +22,14 @@ export interface TimelineItem {
   title: string;
   description: string;
   side: 'left' | 'right';
-  icon: any;
+  icon: IconType;
   iconColor?: string;
 }
 
 export interface Info {
   name: string;
   value: string;
-  icon: any;
+  icon: IconType;
 }
 
 export interface MessageData {

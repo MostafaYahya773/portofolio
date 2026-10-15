@@ -44,14 +44,14 @@ module.exports = {
           'bg-cta': '#3730C8', // خلفية قسم الـ CTA (بنفسجي داكن)
           // --- الـ Accent ---
           purple: '#3B3BC8', // بنفسجي — عناوين الـ Hero
-          teal: '#17B8A6', // Teal — Accent
+          teal: '#0F766E', // Accessible teal on light backgrounds
           green: '#34D399', // شريط Problem Solved
           blue: '#2563EB', // زرار CTA الأزرق
 
           // --- النصوص ---
           'text-primary': '#111827', // النص الأسود الرئيسي
           'text-secondary': '#464554', // النصوص الثانوية (الوصف)
-          'text-muted': '#9CA3AF', // النصوص الأصغر والـ muted
+          'text-muted': '#64748B', // Readable secondary text on light backgrounds
           'nav-Color': '#475569', // لون النص في الـ Navbar عندما يكون active
 
           // --- الـ Borders والـ Tags ---

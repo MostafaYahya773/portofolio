@@ -1,24 +1,25 @@
 'use client';
-import { createClient } from '../../../lib/supabase/client';
 import { MessageData } from '../interface';
 import { useMutation } from '@tanstack/react-query';
 
 const useSendMessage = () => {
-  const supabase = createClient();
-
-  const sendMessage = async (messageDataL: MessageData) => {
-    const { data, error } = await supabase.from('contact').insert({
-      name: messageDataL.name,
-      email: messageDataL.email,
-      subject: messageDataL.subject,
-      description: messageDataL.description,
+  const sendMessage = async (message: MessageData & { website?: string }) => {
+    const response = await fetch('/api/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(message),
+      signal: AbortSignal.timeout(20_000),
     });
-    return data;
+    const result = await response.json();
+    if (!response.ok || result.ok !== true) {
+      throw new Error(result.error || 'Your message could not be sent. Please try again.');
+    }
   };
 
   return useMutation({
     mutationKey: ['sendMessage'],
     mutationFn: sendMessage,
+    retry: false,
   });
 };
 
